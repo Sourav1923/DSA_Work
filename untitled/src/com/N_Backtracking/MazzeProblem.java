@@ -2,7 +2,7 @@ package com.N_Backtracking;
 
 import java.util.ArrayList;
 
-public class Backtracking {
+public class MazzeProblem {
     public static void main(String[] args) {
        // System.out.println(mazzePathCount(3,3));
        // mazzePaths("", 3, 3);
@@ -102,6 +102,8 @@ public class Backtracking {
             mazzeRetriction(p+"R", mazze, row, col+1);
         }
     }
+
+
 
 
 }

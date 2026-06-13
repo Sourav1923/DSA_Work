@@ -117,6 +117,70 @@ public class SingleLinkedList {
         return value;
     }
 
+    // Insert using Recursion
+
+    public void insertRec(int val, int index){
+        head= insertRec(val, index, head);
+    }
+
+    private Node insertRec(int val , int index, Node node){
+        if (index == 0){
+            Node temp = new Node(val, node);
+            size++;
+            return temp;
+        }
+
+        node.next = insertRec(val, index-1, node.next);
+
+        return node;
+    }
+    //Reversing LinkedList
+
+    //Using Recursion
+
+    private void reverseUsingRec(Node node){
+        if(node == tail){
+            head = tail;
+            return;
+        }
+
+        reverseUsingRec(node.next);
+
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+
+    }
+
+    private void reverseUsingIter(){
+        if (size < 2){
+            return;
+        }
+
+        Node prev = null;
+        Node pres = head;
+        Node fast = head.next;
+
+        while (pres != null){
+            pres.next = prev;
+            prev = pres;
+            pres = fast;
+            if(fast != null){
+                fast = fast.next;
+            }
+        }
+
+        head = prev;
+    }
+
+    public void reversal(){
+       // reverseUsingRec(head);
+
+        reverseUsingIter();
+    }
+
+
+
     //Find
     public Node find (int target){
         Node temp = head;
